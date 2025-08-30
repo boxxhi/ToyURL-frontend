@@ -1,35 +1,17 @@
-# vue-enlaces
+## ToyURL Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+El frontend de la pagina se hizo con las siguientes tecnologias.
 
-## Recommended IDE Setup
+- Vite
+- VueJS
+- ESLint
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+##
 
-## Customize configuration
+Usa `npm install`, para instalar las depencias necesarias.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Usa `npm run dev`, para ver la pagina en entorno local.
 
-## Project Setup
+Usa `npm run lint`, para verificar errores.
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Usa `npm run build`, para compilar todo el proyecto. El resultado estara en la carpeta `dist/`
