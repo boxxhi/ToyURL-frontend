@@ -14,5 +14,6 @@ export default {
 </script>
 
 <template>
+  <HeaderComponent />
   <MainComponent />
 </template>
