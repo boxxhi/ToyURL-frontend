@@ -14,18 +14,5 @@ export default {
 </script>
 
 <template>
-  <div id="app">
-    <HeaderComponent />
-    <MainComponent />
-    <FooterComponent />
-  </div>
+  <MainComponent />
 </template>
-
-<style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

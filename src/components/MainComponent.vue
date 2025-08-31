@@ -1,18 +1,27 @@
 <template>
   <main>
-    <div class="form-container">
-      <h2>Pega tu URL aqui</h2>
-      <p>No requiere registro</p>
-      <input v-model="longUrl" type="url" placeholder="URL" required />
-      <button @click="acortarEnlace">Acortar</button>
+    <div class="banner-msg">
+      <h1>¡Empieza a acortar enlaces gratis!</h1>
+      <p>Usa nuestro acortador para mejorar el diseño de tus links</p>
     </div>
-    <div v-if="shortUrl" class="result">
-      <p>
-        Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
-      </p>
-      <button @click="copiarAlPortapapeles">Copiar</button>
+
+    <div class="container">
+      <div class="shorter-form">
+        <h2>Pega tu URL aqui</h2>
+        <p>No requiere registro</p>
+        <div class="shorter-form-input">
+          <input v-model="longUrl" type="url" placeholder="URL" required />
+          <button @click="acortarEnlace">Acortar</button>
+        </div>
+      </div>
+      <div v-if="shortUrl" class="result">
+        <p>
+          Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
+        </p>
+        <button @click="copiarAlPortapapeles">Copiar</button>
+      </div>
+      <div v-if="error" class="error">{{ error }}</div>
     </div>
-    <div v-if="error" class="error">{{ error }}</div>
   </main>
 </template>
 
@@ -62,42 +71,75 @@ export default {
 </script>
 
 <style scoped>
-main {
-  max-width: 600px;
-  margin: 0 auto;
+
+.banner-msg {
+  margin-top: 50px;
+  color: #FFFFFF;
+  text-align: center;
+
+  h1 {
+    font-weight: 900;
+    font-size: 36pt;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 16pt;
+    opacity: 0.85;
+    line-height: 1.25rem;
+  }
+
+  margin-bottom: 4rem;
 }
 
-.form-container {
+.shorter-form {
+  background-color: #FFFFFF;
+  padding: 25px;
+  width: 650px;
+
+  border-radius: 25px;
+
+  h2 {
+    color: #031F39;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    color: #698187;
+  }
+}
+
+.shorter-form-input {
+
+  margin-top: 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
+  gap: 20px;
+
+  input {
+    height: 40px;
+    font-size: 14pt;
+    border-radius: 5px;
+  }
+
+  button {
+    width: 95px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 0;
+    background-color: #7EFC8D;
+    color: #031F39;
+    font-weight: 900;
+    font-size: 12pt;
+  }
 }
 
-input {
-  padding: 10px;
-  font-size: 16px;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 650px;
 }
 
-button {
-  padding: 10px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3a9c72;
-}
-
-.result {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f0f0f0;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
-}
 </style>
