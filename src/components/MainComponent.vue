@@ -74,7 +74,7 @@ export default {
 
 .banner-msg {
   margin-top: 50px;
-  color: #FFFFFF;
+  color: var(--alt-background-color);
   text-align: center;
 
   h1 {
@@ -93,24 +93,23 @@ export default {
 }
 
 .shorter-form {
-  background-color: #FFFFFF;
+  background-color: var(--alt-background-color);
   padding: 25px;
   width: 650px;
 
   border-radius: 25px;
 
   h2 {
-    color: #031F39;
+    color: var(--primary-color);
     margin-bottom: 0.8rem;
   }
 
   p {
-    color: #698187;
+    color: var(--muted-color);
   }
 }
 
 .shorter-form-input {
-
   margin-top: 1.8rem;
   display: flex;
   flex-direction: column;
@@ -128,8 +127,8 @@ export default {
     padding: 8px;
     border-radius: 12px;
     border: 0;
-    background-color: #7EFC8D;
-    color: #031F39;
+    background-color: var(--btn-color);
+    color: var(--primary-color);
     font-weight: 900;
     font-size: 12pt;
   }
