@@ -11,69 +11,70 @@
         <p>No requiere registro</p>
         <div class="shorter-form-input">
           <input v-model="longUrl" type="url" placeholder="URL" required />
-          <button @click="acortarEnlace">Acortar</button>
+          <button @click="shortLink">Acortar</button>
         </div>
       </div>
       <div v-if="shortUrl" class="result">
         <p>
           Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
         </p>
-        <button @click="copiarAlPortapapeles">Copiar</button>
+        <button @click="copyToClipboard">Copiar</button>
       </div>
       <div v-if="error" class="error">{{ error }}</div>
     </div>
   </main>
 </template>
 
-<script>
-export default {
-  name: "MainComponent",
-  data() {
-    return {
-      longUrl: "",
-      shortUrl: "",
-      error: "",
-    };
-  },
-  methods: {
-    async acortarEnlace() {
-      if (!this.longUrl) {
-        this.error = "Por favor, ingresa un enlace válido.";
-        return;
-      }
-      try {
-        const response = await fetch(
-          `https://toyUrl.com/api-create.php?url=${encodeURIComponent(this.longUrl)}`
-        );
-        if (!response.ok) {
-          throw new Error("Error al acortar el enlace");
-        }
-        const data = await response.text();
-        this.shortUrl = data;
-        this.error = "";
-      } catch (err) {
-        this.error = err.message;
-        this.shortUrl = "";
-      }
-    },
-    copiarAlPortapapeles() {
-      navigator.clipboard
-        .writeText(this.shortUrl)
-        .then(() => {
-          alert("Enlace copiado al portapapeles");
-        })
-        .catch((err) => {
-          console.error("Error al copiar:", err);
-        });
-    },
-  },
-};
+<script setup>
+import { ref } from "vue";
+
+const longUrl = ref("");
+const shortUrl = ref("");
+
+const error = ref("");
+const showError = ref(false);
+
+async function shortLink() {
+  showError.value = true;
+
+  if (longUrl.value === "") {
+    error.value = "Por favor, ingresa un enlace válido.";
+    return;
+  }
+
+  try {
+    const response = await fetch("/create-url", {
+      method: "POST",
+      body: JSON.stringify({
+        url: longUrl.value,
+      }),
+    });
+
+    if (!response.ok) {
+      error.value = "Por favor, ingresa un enlace válido.";
+      return;
+    }
+
+    const data = await response.json();
+    shortUrl.value = data["url"];
+
+    showError.value = false;
+    error.value = "";
+
+  } catch (err) {
+    error.value = "Error al procesar la solicitud.";
+    console.error(err.message);
+  }
+}
+
+async function copyToClipboard() {
+  await navigator.clipboard.writeText(shortUrl.value)
+}
+
 </script>
 
 <style scoped>
-
 .banner-msg {
-  margin-top: 50px;
   color: var(--alt-background-color);
   text-align: center;
 
@@ -140,5 +141,4 @@ export default {
 
   width: 650px;
 }
-
 </style>
