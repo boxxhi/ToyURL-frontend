@@ -10,17 +10,22 @@
         <h2>Pega tu URL aqui</h2>
         <p>No requiere registro</p>
         <div class="shorter-form-input">
-          <input v-model="longUrl" type="url" placeholder="URL" required />
+          <div class="ex">
+            <input v-model="longUrl" type="url" placeholder="URL" required />
+            <div v-if="error" class="error">{{ error }}</div>
+          </div>
+
           <button @click="shortLink">Acortar</button>
         </div>
       </div>
+
+
       <div v-if="shortUrl" class="result">
         <p>
           Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
         </p>
         <button @click="copyToClipboard">Copiar</button>
       </div>
-      <div v-if="error" class="error">{{ error }}</div>
     </div>
   </main>
 </template>
@@ -74,6 +79,19 @@ async function copyToClipboard() {
 </script>
 
 <style scoped>
+
+.ex {
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
+
+.error {
+  color: red;
+}
+
 .banner-msg {
   color: var(--alt-background-color);
   text-align: center;
