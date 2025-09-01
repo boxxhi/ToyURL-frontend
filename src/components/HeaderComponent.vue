@@ -5,29 +5,35 @@ export default {
 </script>
 
 <template>
-  <header class="header">
+  <header>
     <div class="logo">
-      <img src="C:\Users\user\Desktop\probando vue\origin\ToyURL-frontend\src\images\Picture2.png" 
-      alt="Logo" />
+      <img src="/logo.png"
+      alt="logo"
+      height="65px"
+      />
     </div>
     <div class="actions">
-      <button class="login-btn">Iniciar Sesion</button>
+      <a class="login-btn">
+        <span>Iniciar Sesion</span>
+      </a>
       <button class="register-btn">Registrarme</button>
     </div>
   </header>
 </template>
 
 <style scoped>
-.header {
+
+header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #12314f;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.logo img {
-  height: 40px;
+  justify-content: space-between;
+  padding: 20px 20px;
+
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 5rem;
 }
 
 .actions {
@@ -36,22 +42,35 @@ export default {
 }
 
 .login-btn {
-  background: transparent;
-  border: 1px solid #1976d2;
-  color: #1976d2;
-  padding: 8px 12px;
-  border-radius: 4px;
+  color: white;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
   cursor: pointer;
 }
 
+.login-btn:hover {
+  text-decoration: underline;
+}
+
 .register-btn {
-  background: #28a745;
+  background: var(--btn-color);
   border: none;
-  color: white;
+  color: var(--primary-color);
   padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 10px;
   font-weight: bold;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+}
+
+.register-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 6px;
+  opacity: 0.8;
 }
 
 </style>
