@@ -86,11 +86,11 @@ async function copyToClipboard() {
 
   p {
     font-size: 16pt;
-    opacity: 0.85;
     line-height: 1.25rem;
+    font-weight: 300;
   }
 
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .shorter-form {
@@ -107,6 +107,7 @@ async function copyToClipboard() {
 
   p {
     color: var(--muted-color);
+    font-weight: 300;
   }
 }
 
@@ -132,6 +133,12 @@ async function copyToClipboard() {
     color: var(--primary-color);
     font-weight: 900;
     font-size: 12pt;
+
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 6px;
+    }
   }
 }
 
