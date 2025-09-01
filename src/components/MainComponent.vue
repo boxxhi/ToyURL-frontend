@@ -19,7 +19,6 @@
         </div>
       </div>
 
-
       <div v-if="shortUrl" class="result">
         <p>
           Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
