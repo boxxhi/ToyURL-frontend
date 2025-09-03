@@ -6,34 +6,40 @@ export default {
 
 <template>
   <header>
-    <div class="logo">
-      <img src="/logo.png"
-      alt="logo"
-      height="65px"
-      />
-    </div>
-    <div class="actions">
-      <a class="login-btn">
-        <span>Iniciar Sesion</span>
-      </a>
-      <button class="register-btn">Registrarme</button>
-    </div>
+    <nav>
+      <div class="logo">
+        <img src="/logo.png"
+        alt="logo"
+        height="65px"
+        />
+      </div>
+      <div class="actions">
+        <a class="login-btn">
+          <span>Iniciar Sesion</span>
+        </a>
+        <button class="register-btn">Registrarme</button>
+      </div>
+    </nav>
   </header>
 </template>
 
 <style scoped>
 
 header {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+}
+
+nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px 20px;
 
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-
-  margin-bottom: 5rem;
+  gap: 25vw;
 }
 
 .actions {
