@@ -1,31 +1,38 @@
 <template>
   <main>
-    <div class="banner-msg">
-      <h1>¡Empieza a acortar enlaces gratis!</h1>
-      <p>Usa nuestro acortador para mejorar el diseño de tus links</p>
-    </div>
+    <section class="main">
+      <div class="banner-msg">
+          <h1>¡Empieza a acortar enlaces gratis!</h1>
+          <p>Usa nuestro acortador para mejorar el diseño de tus links</p>
+        </div>
 
-    <div class="container">
-      <div class="shorter-form">
-        <h2>Pega tu URL aqui</h2>
-        <p>No requiere registro</p>
-        <div class="shorter-form-input">
-          <div class="ex">
-            <input v-model="longUrl" type="url" placeholder="URL" required />
-            <div v-if="error" class="error">{{ error }}</div>
+        <div class="container__form">
+          <div class="shorter-form">
+            <h2>Pega tu URL aqui</h2>
+            <p>No requiere registro</p>
+            <div class="shorter-form-input">
+              <div class="ex">
+                <input v-model="longUrl" type="url" placeholder="URL" required />
+                <div v-if="error" class="error">{{ error }}</div>
+              </div>
+
+              <button @click="shortLink">Acortar</button>
+            </div>
           </div>
 
-          <button @click="shortLink">Acortar</button>
+          <div v-if="shortUrl" class="result">
+            <p>
+              Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
+            </p>
+            <button @click="copyToClipboard">Copiar</button>
+          </div>
         </div>
-      </div>
+    </section>
 
-      <div v-if="shortUrl" class="result">
-        <p>
-          Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
-        </p>
-        <button @click="copyToClipboard">Copiar</button>
-      </div>
-    </div>
+    <section class="info">
+      <h1>Gestiona y personaliza tus enlaces</h1>
+      <p>Registrate gratis y accede a tu panel de control donde podras gestionar y personalizar tus enlaces</p>
+    </section>
   </main>
 </template>
 
@@ -79,6 +86,38 @@ async function copyToClipboard() {
 
 <style scoped>
 
+main {
+  min-height: 100vh;
+}
+
+.main {
+  padding-top: 110px;
+  min-height: 100vh;
+}
+
+.info {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+
+  color: white;
+
+  text-align: center;
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  h1 {
+    font-weight: 900;
+    font-size: 28pt;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 16pt;
+    font-weight: 300;
+  }
+}
+
 .ex {
   width: 100%;
 
@@ -103,10 +142,10 @@ async function copyToClipboard() {
 
   p {
     font-size: 16pt;
-    line-height: 1.25rem;
     font-weight: 300;
   }
 
+  margin-top: 6rem;
   margin-bottom: 6rem;
 }
 
@@ -159,7 +198,7 @@ async function copyToClipboard() {
   }
 }
 
-.container {
+.container__form {
   margin-left: auto;
   margin-right: auto;
 
