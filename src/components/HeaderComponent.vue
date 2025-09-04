@@ -79,4 +79,18 @@ nav {
   opacity: 0.8;
 }
 
+@media (max-width: 768px) {
+  .actions {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
 </style>

@@ -204,4 +204,18 @@ main {
 
   width: 650px;
 }
+
+
+@media (max-width: 768px) {
+  .shorter-form {
+    width: 100%;
+    border-radius: 0%;
+  }
+
+  .container__form {
+    width: 100%;
+    margin: 0
+  }
+}
+
 </style>

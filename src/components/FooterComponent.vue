@@ -8,7 +8,7 @@ export default {
   <footer>
     <div class="footer">
       <a href="https://github.com/boxxhi/ToyURL-frontend" target="_blank">
-        <img src="/github.png" alt="Github" height="70px">
+        <img src="/github.png" alt="Github" height="50px">
       </a>
     </div>
   </footer>
@@ -23,7 +23,7 @@ footer {
 }
 
 .footer {
-  width: 71.55px;
+  width: 51.11px;
 
   margin-left: auto;
   margin-right: auto;
