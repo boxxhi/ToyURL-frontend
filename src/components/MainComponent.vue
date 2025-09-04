@@ -205,7 +205,6 @@ main {
   width: 650px;
 }
 
-
 @media (max-width: 768px) {
   .shorter-form {
     width: 100%;
