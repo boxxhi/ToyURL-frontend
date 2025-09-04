@@ -5,21 +5,28 @@ export default {
 </script>
 
 <template>
-  <footer class="footer">
-    <h1>Gestiona y Personaliza tus enlaces</h1>
-    <p>
-      registrate gratis y accede a tu panel de control donde podras gestionar y personalizar tus
-      enlaces
-    </p>
-    <p>© 2025 ToyUrl. Todos los derechos reservados.</p>
+  <footer>
+    <div class="footer">
+      <a href="https://github.com/boxxhi/ToyURL-frontend" target="_blank">
+        <img src="/github.png" alt="Github" height="70px">
+      </a>
+    </div>
   </footer>
 </template>
 
 <style scoped>
-.footer {
-  margin-top: 40px;
+
+footer {
+  margin-top: 30px;
   padding: 20px 0;
-  background: #022341;
   color: white;
 }
+
+.footer {
+  width: 71.55px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
