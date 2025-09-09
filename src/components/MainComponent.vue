@@ -59,6 +59,9 @@ async function shortLink() {
       body: JSON.stringify({
         url: longUrl.value,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (!response.ok) {
