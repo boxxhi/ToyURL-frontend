@@ -12,20 +12,18 @@
             <p>No requiere registro</p>
             <div class="shorter-form-input">
               <div class="ex">
-                <input v-model="longUrl" type="url" placeholder="URL" required />
+                <input v-model="longUrl" type="url" placeholder="URL" required id="longUrl"/>
                 <div v-if="error" class="error">{{ error }}</div>
+
               </div>
 
-              <button @click="shortLink">Acortar</button>
+              <div class="buttons">
+                <button @click="shortLink">Acortar</button>
+                <button @click="copyToClipboard" class="copyy">Copiar</button>
+              </div>
             </div>
           </div>
 
-          <div v-if="shortUrl" class="result">
-            <p>
-              Enlace acortado: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
-            </p>
-            <button @click="copyToClipboard">Copiar</button>
-          </div>
         </div>
     </section>
 
@@ -54,7 +52,7 @@ async function shortLink() {
   }
 
   try {
-    const response = await fetch("/create-url", {
+    const response = await fetch("/api/create-url", {
       method: "POST",
       body: JSON.stringify({
         url: longUrl.value,
@@ -70,10 +68,12 @@ async function shortLink() {
     }
 
     const data = await response.json();
-    shortUrl.value = data["url"];
+    shortUrl.value = data["shorterUrl"];
 
     showError.value = false;
     error.value = "";
+
+    document.getElementById("longUrl").value = shortUrl.value;
 
   } catch (err) {
     error.value = "Error al procesar la solicitud.";
@@ -91,6 +91,25 @@ async function copyToClipboard() {
 
 main {
   min-height: 100vh;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+  .copyy {
+    background-color: var(--alt-background-color);
+    color: var(--primary-color);
+    border: 0;
+    font-weight: 900;
+    font-size: 12pt;
+
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 6px;
+    }
+  }
 }
 
 .main {

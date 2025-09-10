@@ -55,7 +55,7 @@ onMounted(async () => {
 
   try {
     // Perform POST request to /lookup
-    const response = await fetch('/lookup', {
+    const response = await fetch('/api/lookup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
