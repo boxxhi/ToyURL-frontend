@@ -7,7 +7,7 @@ export default {
 <template>
   <footer>
     <div class="footer">
-      <a href="https://github.com/boxxhi/ToyURL-frontend" target="_blank">
+      <a href="https://github.com/boxxhi/ToyURL" target="_blank">
         <img src="/github.png" alt="Github" height="50px">
       </a>
     </div>
