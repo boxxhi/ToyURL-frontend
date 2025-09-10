@@ -20,6 +20,7 @@
               <div class="buttons">
                 <button @click="shortLink">Acortar</button>
                 <button @click="copyToClipboard" class="copyy">Copiar</button>
+                <button @click="shareLink" class="copyy share">Compartir</button>
               </div>
             </div>
           </div>
@@ -83,6 +84,23 @@ async function shortLink() {
 
 async function copyToClipboard() {
   await navigator.clipboard.writeText(shortUrl.value)
+}
+
+async function shareLink() {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: 'Acortador de URL',
+        text: 'Mira este enlace acortado:',
+        url: shortUrl.value,
+      });
+      console.log('Enlace compartido con éxito');
+    } catch (error) {
+      console.error('Error al compartir el enlace:', error);
+    }
+  } else {
+    alert('La función de compartir no está soportada en este navegador.');
+  }
 }
 
 </script>
