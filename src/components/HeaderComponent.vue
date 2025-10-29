@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: "HeaderComponent",
-};
-</script>
-
 <template>
   <header>
     <nav>
@@ -14,10 +8,12 @@ export default {
         />
       </div>
       <div class="actions">
-        <a class="login-btn">
+        <a class="login-btn" href="/login.html">
           <span>Iniciar Sesion</span>
         </a>
-        <button class="register-btn">Registrarme</button>
+        <button class="register-btn">
+          <a href="/register.html">Registrarme</a>
+        </button>
       </div>
     </nav>
   </header>
@@ -31,6 +27,10 @@ header {
   z-index: 1000;
 
   width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 nav {
@@ -64,7 +64,6 @@ nav {
 .register-btn {
   background: var(--btn-color);
   border: none;
-  color: var(--primary-color);
   padding: 8px 16px;
   border-radius: 10px;
   font-weight: bold;
@@ -72,6 +71,10 @@ nav {
   cursor: pointer;
 
   font-size: 1rem;
+
+  a {
+    color: var(--primary-color);
+  }
 }
 
 .register-btn:hover {
