@@ -19,7 +19,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         code: 'code.html',
-        login: 'login.html'
+        login: 'login.html',
+        register:'register.html'
       }
     }
   },
